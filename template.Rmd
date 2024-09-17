@@ -7,4 +7,33 @@ output: github_document
 library(tidyverse)
 ```
 
+
+
 This document will show how to import data.
+
+
+## Import the FAS Litters CSV
+
+``` {r}
+# Use this code to import the dataset.
+litters_df = read_csv("data/FAS_litters.csv")
+# Instead of importing the whole package, just take the one thing you need.
+litters_df = janitor::clean_names(litters_df)
+```
+
+## Look at the dataset
+``` {r}
+litters_df
+
+head(litters_df)
+tail(litters_df, 10)
+```
+
+``` {r eval=FALSE}
+# eval=FALSE Because popup confuses the R markdown
+view(litters_df)
+```
+
+Now for the learning assessment:
+
+
