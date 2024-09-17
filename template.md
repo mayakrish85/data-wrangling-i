@@ -189,3 +189,28 @@ mlb_df = read_excel("data/mlb11.xlsx", sheet = "mlb11")
 ``` r
 pulse_df = read_sas("data/public_pulse_data.sas7bdat")
 ```
+
+## Never use read.csv()
+
+``` r
+# litters_df = read.csv("data/FAS_litters.csv")
+litters_df = read_csv("data/FAS_litters.csv") # gives you tibble rather than a df
+```
+
+    ## Rows: 49 Columns: 8
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## chr (4): Group, Litter Number, GD0 weight, GD18 weight
+    ## dbl (4): GD of Birth, Pups born alive, Pups dead @ birth, Pups survive
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+``` r
+# don't do this either
+litters_df$L
+```
+
+    ## Warning: Unknown or uninitialised column: `L`.
+
+    ## NULL

@@ -105,3 +105,12 @@ mlb_df = read_excel("data/mlb11.xlsx", sheet = "mlb11")
 pulse_df = read_sas("data/public_pulse_data.sas7bdat")
 ```
 
+## Never use read.csv()
+
+```{r}
+# litters_df = read.csv("data/FAS_litters.csv")
+litters_df = read_csv("data/FAS_litters.csv") # gives you tibble rather than a df
+
+# don't do this either
+litters_df$L
+```
