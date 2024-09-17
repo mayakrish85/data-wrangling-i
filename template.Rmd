@@ -34,6 +34,55 @@ tail(litters_df, 10)
 view(litters_df)
 ```
 
-Now for the learning assessment:
+## Learning assessment
+
+Load the FAS_pups dataset using the absolute path.
+```{r, eval=FALSE}
+pups_df = read_csv("Users/mayakrishnamoorthy/Documents/Columbia Classes/P8105/data-wrangling-i/data/FAS_pups.csv")
+```
+
+Load the FAS_pups dataset using the relative path.
+
+``` {r}
+pups_df = read_csv("data/FAS_pups.csv")
+pups_df = janitor::clean_names(pups_df)
+```
+
+## Look at read_csv options
+
+col_names and skipping rows
+``` {r}
+litters_df = 
+  read_csv(
+    file = "data/FAS_litters.csv"
+    #col_names = FALSE,
+    #skip=1
+  )
+```
+
+What about missing data?
+
+``` {r}
+litters_df = 
+  read_csv(
+    file = "data/FAS_litters.csv",
+    na = c("NA", "", ".")
+  )
+
+litters_df = janitor::clean_names(litters_df)
+pull(litters_df, gd0_weight)
+``` 
 
 
+What if we code `group` as a factor variable?
+
+``` {r}
+litters_df = 
+  read_csv(
+    file = "data/FAS_litters.csv",
+    na = c("NA", "", "."),
+    col_types = cols(
+      Group = col_factor()
+    )
+  )
+```
